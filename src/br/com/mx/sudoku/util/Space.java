@@ -8,6 +8,12 @@ public class Space {
 
     private final boolean fixed;
 
+   
+
+    public boolean isFixed() {
+        return fixed;
+    }
+
     public Space(int expected, boolean fixed) {
         this.expected = expected;
         this.fixed = fixed;
