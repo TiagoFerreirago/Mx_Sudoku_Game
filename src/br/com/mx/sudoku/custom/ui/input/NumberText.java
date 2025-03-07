@@ -1,8 +1,9 @@
 package br.com.mx.sudoku.custom.ui.input;
 
-public class NumberText  {
+import javax.swing.JComponent;
+
+public class NumberText extends JComponent {
 
 }
 
 
-}
