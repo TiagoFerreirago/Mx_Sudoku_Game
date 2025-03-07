@@ -23,11 +23,6 @@ public class Main {
         positions.put("3,2", "9,false"); positions.put("4,2", "1,true"); positions.put("5,2", "3,false");
         positions.put("6,2", "7,false"); positions.put("7,2", "4,false"); positions.put("8,2", "5,true");
 
-// Continue adicionando todas as posições...
-
-startGame(positions);  // Inicia o jogo automaticamente
-
-
         int option;
         while (true) {
             System.out.println("\nSelecione uma das opções a seguir:");
