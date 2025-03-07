@@ -8,6 +8,7 @@ import br.com.mx.sudoku.custom.ui.input.NumberText;
 import br.com.mx.sudoku.custom.ui.panel.MainPanel;
 import br.com.mx.sudoku.custom.ui.panel.SudokuSector;
 import br.com.mx.sudoku.service.BoardService;
+import br.com.mx.sudoku.service.EventEnum;
 import br.com.mx.sudoku.service.NotifierService;
 import br.com.mx.sudoku.util.Space;
 
@@ -76,7 +77,7 @@ public class MainScreen {
     private JPanel generateSection(List<Space> spaces) {
 
         List<NumberText> fields = new ArrayList<>(spaces.stream().map(NumberText::new).toList());
-        fields.forEach(t -> notifierService.subscribe(CLEAR_SPACE, t));
+        fields.forEach(t -> notifierService.subscribe(EventEnum.CLEAR_SPACE, t));
         return new SudokuSector(fields);
 
     }
@@ -88,7 +89,7 @@ public class MainScreen {
 
             if(dialogResult == 0){
                 boardService.reset();
-                notifierService.notify(CLEAR_SPACE);
+                notifierService.notify(EventEnum.CLEAR_SPACE);
             }
         });
         mainPanel.add(resetButton);
