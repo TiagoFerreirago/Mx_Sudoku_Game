@@ -6,9 +6,16 @@
     "configurations": [
         {
             "type": "java",
+            "name": "UIMain",
+            "request": "launch",
+            "mainClass": "UIMain",
+            "projectName": "Mx_Sudoku_Game_61cfbd0f"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
-            "mainClass": "${file}",
+            "mainClass": "${file}"
         },
         {
             "type": "java",

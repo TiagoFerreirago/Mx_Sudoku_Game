@@ -42,14 +42,17 @@ public class BoardService {
 
     private List<List<Space>> initBoard(Map<String, String>gameConfig){
         List<List<Space>> spaces = new ArrayList<>();
-        for(int i = 0; i < BOARD_LIMIT; i++){
+        for (int i = 0; i < BOARD_LIMIT; i++) {
             spaces.add(new ArrayList<>());
-            for(int j = 0; j < BOARD_LIMIT; j++){
-                var positionConfig = gameConfig.get("%s,%s".formatted(i, j));
-                var expected = Integer.parseInt(positionConfig.split(",")[0]);
-                var fixed = Boolean.parseBoolean(positionConfig.split(",")[1]);
-                var currentSpace = new Space(expected, fixed);
-                spaces.get(i).add(currentSpace);
+            for (int j = 0; j < BOARD_LIMIT; j++) {
+                String key = i + "," + j;
+                if (!gameConfig.containsKey(key)) {
+                    gameConfig.put(key, "0,false"); // Define como 0 e não fixo caso não exista
+                }
+                String[] parts = gameConfig.get(key).split(",");
+                int expected = Integer.parseInt(parts[0]);
+                boolean fixed = Boolean.parseBoolean(parts[1]);
+                spaces.get(i).add(new Space(expected, fixed));
             }
         }
         return spaces;
